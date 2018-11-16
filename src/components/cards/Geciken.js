@@ -31,9 +31,7 @@ export default class TabContent extends Component {
               <Grid>
                 <Row style={styles.body}>
                   <Col>
-                    <Text style={{ fontSize: 50, fontWeight: 'bold' }}>
-                      {item.delayed.count}
-                    </Text>
+                    <Text style={{ fontSize: 50 }}>{item.delayed.count}</Text>
                   </Col>
                   <Col>
                     <Row>

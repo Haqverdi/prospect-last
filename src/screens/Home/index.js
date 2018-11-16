@@ -17,7 +17,9 @@ import {
 
 // styles
 import styles from './style';
-import TabContent from './../../components/TabContent';
+import EnCoxGeciken from './../../components/cards/EnCoxGeciken';
+import Geciken from './../../components/cards/Geciken';
+import Gelmeyen from './../../components/cards/Gelmeyen';
 
 class Home extends React.Component {
   constructor(props) {
@@ -54,7 +56,7 @@ class Home extends React.Component {
         {/* Header */}
         {/* nav tabs */}
         <Tabs locked={true} renderTabBar={() => <ScrollableTab />}>
-          {this.props.list.map((item, i) => (
+          {this.props.list.map((data, i) => (
             <Tab
               tabStyle={styles.bgGreen}
               activeTabStyle={styles.bgGreen}
@@ -63,9 +65,11 @@ class Home extends React.Component {
                 color: '#fff',
                 fontWeight: 'bold',
               }}
-              heading={item.title}
+              heading={data.title}
               key={i}>
-              <TabContent data={item} />
+              <Geciken data={data} />
+              <Gelmeyen data={data} />
+              <EnCoxGeciken data={data} />
             </Tab>
           ))}
         </Tabs>

@@ -15,7 +15,7 @@ export default class TabContent extends Component {
         <Content padder>
           <Card style={styles.cardContainer}>
             <CardItem header style={styles.header}>
-              <Text style={{ color: '#000' }}>{item.delayed.title}</Text>
+              <Text style={{ color: '#000' }}>Ən çox gecikən</Text>
               <TouchableWithoutFeedback
                 onPress={() => {
                   alert('test');
@@ -29,36 +29,24 @@ export default class TabContent extends Component {
             </CardItem>
             <CardItem>
               <Grid>
-                <Row style={styles.body}>
-                  <Col>
-                    <Text style={{ fontSize: 50, fontWeight: 'bold' }}>
-                      {item.delayed.count}
+                <Row>
+                  <Text
+                    style={{ fontSize: 24, color: '#000', fontWeight: 'bold' }}>
+                    Agahuseyn Balabeyov
+                  </Text>
+                </Row>
+                <Row>
+                  <Text style={{ color: '#cdcdcd', fontSize: 16 }}>
+                    1s. 34 dəq.
+                  </Text>
+                </Row>
+                <Row>
+                  <Text style={{ color: 'red' }}>
+                    Ay ərzində:
+                    <Text style={{ color: 'red', fontWeight: 'bold' }}>
+                      10 dəfə
                     </Text>
-                  </Col>
-                  <Col>
-                    <Row>
-                      <Text style={{ fontSize: 20, color: '#dddddd' }}>
-                        {item.delayed.percent}%
-                      </Text>
-                    </Row>
-                    <Row>
-                      <Icon
-                        name="caret-up"
-                        size={12}
-                        style={{ color: '#ce5651' }}
-                      />
-                      <Text style={{ fontSize: 12, color: '#ce5651' }}>
-                        {item.delayed.difference}
-                      </Text>
-                    </Row>
-                  </Col>
-                  <Col>
-                    <Icon
-                      name="user"
-                      size={50}
-                      style={{ color: '#dddddd', marginLeft: 30 }}
-                    />
-                  </Col>
+                  </Text>
                 </Row>
               </Grid>
             </CardItem>
@@ -87,7 +75,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
   },
   body: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
   },
 });

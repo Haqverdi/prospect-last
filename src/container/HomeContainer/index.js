@@ -16,6 +16,18 @@ const datas = [
       percent: 28,
       faktiki: 5555,
       prognoz: 7777,
+      chartData: [
+        {
+          key: 1,
+          amount: 28,
+          svg: { fill: '#68c298' },
+        },
+        {
+          key: 2,
+          amount: 72,
+          svg: { fill: '#c85f4c' },
+        },
+      ],
     },
     mostDelayed: {
       title: 'En cox geciken',
