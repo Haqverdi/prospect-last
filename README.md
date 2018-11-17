@@ -1,6 +1,6 @@
 # Prospect SMB 
 
-> A React Native project for `Pronet`
+> A test project for `Pronet`
 
 ## Requirements
 - [Node](https://nodejs.org/en/download/current/)
@@ -34,6 +34,14 @@ Run in development mode with expo
 ```bash
 expo start
 ```
+
+### Screen`s
+#### login
+![Login](https://github.com/Haqverdi/prospect-last/blob/home/screens/login.jpeg)
+#### home
+![Login](https://github.com/Haqverdi/prospect-last/blob/home/screens/home.png)
+#### sidebar
+![Login](https://github.com/Haqverdi/prospect-last/blob/home/screens/sidebar.png)
 
 ## LICENSE
 MIT © Haqverdi Behbudov
