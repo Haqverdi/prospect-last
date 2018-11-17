@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, Text } from 'react-native';
 import {
   Container,
   Header,
@@ -17,7 +17,7 @@ import {
 
 // styles
 import styles from './style';
-import TabContent from './../../components/TabContent';
+import TabContent from '../../components/DavamiyyetTabContent';
 
 class Home extends React.Component {
   constructor(props) {
@@ -54,20 +54,54 @@ class Home extends React.Component {
         {/* Header */}
         {/* nav tabs */}
         <Tabs locked={true} renderTabBar={() => <ScrollableTab />}>
-          {this.props.list.map((item, i) => (
-            <Tab
-              tabStyle={styles.bgGreen}
-              activeTabStyle={styles.bgGreen}
-              textStyle={{ color: '#fff' }}
-              activeTextStyle={{
-                color: '#fff',
-                fontWeight: 'bold',
-              }}
-              heading={item.title}
-              key={i}>
-              <TabContent data={item} />
-            </Tab>
-          ))}
+          <Tab
+            tabStyle={styles.bgGreen}
+            activeTabStyle={styles.bgGreen}
+            textStyle={{ color: '#fff' }}
+            activeTextStyle={{
+              color: '#fff',
+              fontWeight: 'bold',
+            }}
+            heading={'Davamiyyət'}
+            key={'Davamiyyət'}>
+            <TabContent data={this.props.list} />
+          </Tab>
+          <Tab
+            tabStyle={styles.bgGreen}
+            activeTabStyle={styles.bgGreen}
+            textStyle={{ color: '#fff' }}
+            activeTextStyle={{
+              color: '#fff',
+              fontWeight: 'bold',
+            }}
+            heading={'Əməkhaqqı'}
+            key={'Əməkhaqqı'}>
+            <Text>Əməkhaqqı</Text>
+          </Tab>
+          <Tab
+            tabStyle={styles.bgGreen}
+            activeTabStyle={styles.bgGreen}
+            textStyle={{ color: '#fff' }}
+            activeTextStyle={{
+              color: '#fff',
+              fontWeight: 'bold',
+            }}
+            heading={'Xərclər'}
+            key={'Xərclər'}>
+            <Text>Xərclər</Text>
+          </Tab>
+          <Tab
+            tabStyle={styles.bgGreen}
+            activeTabStyle={styles.bgGreen}
+            textStyle={{ color: '#fff' }}
+            activeTextStyle={{
+              color: '#fff',
+              fontWeight: 'bold',
+            }}
+            heading={'Dövriyyə'}
+            key={'Dövriyyə'}>
+            <Text>Dövriyyə</Text>
+          </Tab>
         </Tabs>
         {/* nav tabs */}
         {/* Fab button */}

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { AsyncStorage } from 'react-native';
 import { Toast } from 'native-base';
 import Login from '../../screens/Login';
 
@@ -24,15 +25,42 @@ class LoginContainer extends React.Component {
     };
     this.handleInput = this.handleInput.bind(this);
     this.login = this.login.bind(this);
+    this._setToken = this._setToken.bind(this);
+    this._autoLogin();
   }
 
-  login = () => {
+  _setToken = async email => {
+    try {
+      await AsyncStorage.setItem('Token', email);
+    } catch (error) {
+      Toast.show({
+        text: 'Error with sign in',
+        duration: 2000,
+        position: 'top',
+        textStyle: {
+          textAlign: 'center',
+        },
+      });
+    }
+  };
+
+  _autoLogin = async () => {
+    try {
+      const userToken = await AsyncStorage.getItem('Token');
+      this.props.navigation.navigate(userToken ? 'Drawer' : 'Login');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  login = async () => {
     if (
       minLength(7, this.state.password) &&
       maxLength(15, this.state.password) &&
       email(this.state.email)
     ) {
-      this.props.navigation.navigate('Drawer');
+      await this._setToken(this.state.email);
+      this.props.navigation.navigate('Drawer', { email: this.state.email });
     } else {
       Toast.show({
         text: 'Enter Valid Username & password!',
