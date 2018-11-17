@@ -1,6 +1,6 @@
 # Prospect SMB 
 
-> A test project for `Pronet`
+> A React Native project for `Pronet`
 
 ## Requirements
 - [Node](https://nodejs.org/en/download/current/)
