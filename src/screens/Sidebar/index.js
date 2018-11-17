@@ -17,7 +17,11 @@ const routes = [
 ];
 
 export default class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    const email = this.props.navigation.getParam('email', 'no-email');
     return (
       <Container>
         <Content>
@@ -30,7 +34,7 @@ export default class Sidebar extends React.Component {
                   button
                   onPress={() => {
                     data.route === 'Login'
-                      ? this.props.navigation.navigate('Login')
+                      ? this.props.onLogout()
                       : this.props.navigation.navigate(data.route);
                   }}>
                   <Text>{data.caption}</Text>

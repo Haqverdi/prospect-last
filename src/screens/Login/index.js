@@ -6,6 +6,8 @@ import {
   StatusBar,
   TextInput,
   Text,
+  Modal,
+  TouchableHighlight,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -24,7 +26,13 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
   }
+  state = {
+    modalVisible: false,
+  };
 
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
   render() {
     return (
       <TouchableWithoutFeedback
@@ -74,7 +82,8 @@ export default class Login extends Component {
               <Text
                 style={formStyles.forgotPasswordText}
                 onPress={() => {
-                  this.props.navigation.navigate('Home');
+                  // this.props.navigation.navigate('Home');
+                  this.setModalVisible(true);
                 }}>
                 Forgot password
               </Text>
@@ -95,6 +104,36 @@ export default class Login extends Component {
             />
             {/* other methods */}
             <Social />
+            <View>
+              <Modal
+                animationType="fade"
+                transparent={false}
+                visible={this.state.modalVisible}>
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <View>
+                    <Text>Password Change template </Text>
+
+                    <TouchableHighlight
+                      style={{
+                        borderColor: 'green',
+                        borderWidth: 3,
+                        backgroundColor: 'green',
+                        margin: 20,
+                      }}
+                      onPress={() => {
+                        this.setModalVisible(!this.state.modalVisible);
+                      }}>
+                      <Text style={{ textAlign: 'center' }}>Hide Modal</Text>
+                    </TouchableHighlight>
+                  </View>
+                </View>
+              </Modal>
+            </View>
           </View>
         </View>
       </TouchableWithoutFeedback>
